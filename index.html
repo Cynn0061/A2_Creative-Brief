@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>廣告創意簡介 - HKU SPACE</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+        
+        body { 
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: #f3f4f6; 
+            padding: 20px; 
+            line-height: 1.6;
+        }
+        .form-card { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+        }
+        table { width: 100%; border-collapse: collapse; margin: 25px 0; border: 1px solid #e5e7eb; table-layout: fixed; }
+        td { border: 1px solid #e5e7eb; padding: 15px; vertical-align: middle; word-wrap: break-word; }
+        .bg-gray { background-color: #f9fafb; font-weight: bold; width: 30%; color: #374151; }
+        
+        /* Session 分隔行樣式 */
+        .session-header {
+            background-color: #e2e8f0;
+            text-align: center;
+            font-weight: bold;
+            color: #1e293b;
+            letter-spacing: 0.1em;
+            padding: 10px !important;
+        }
+
+        textarea { 
+            width: 100%; 
+            border: 1px solid #d1d5db; 
+            border-radius: 6px; 
+            padding: 10px; 
+            font-size: 16px; 
+            outline: none; 
+            transition: all 0.2s;
+            display: block;
+            resize: none; 
+            overflow: hidden;
+            background-color: #fff;
+        }
+        textarea:focus { 
+            border-color: #3b82f6; 
+            background-color: #f0f7ff;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .upload-box { 
+            border: 2px dashed #cbd5e1; 
+            border-radius: 8px; 
+            padding: 20px; 
+            text-align: center; 
+            cursor: pointer; 
+            background: #fcfcfc; 
+            transition: all 0.2s; 
+        }
+        .upload-box:hover { 
+            background: #eff6ff; 
+            border-color: #3b82f6; 
+        }
+        .preview-img { 
+            max-width: 100%; 
+            max-height: 400px; 
+            margin-top: 15px; 
+            display: none; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-container {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn { 
+            background: #1e293b; 
+            color: white; 
+            padding: 16px 28px; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            flex: 1;
+            font-size: 1.1rem;
+            transition: all 0.3s; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn:hover { background: #334155; transform: translateY(-1px); }
+        .btn-email { background: #2563eb; }
+        .btn-email:hover { background: #1d4ed8; }
+        
+        .char-count {
+            font-size: 11px;
+            color: #9ca3af;
+            text-align: right;
+            margin-top: 4px;
+        }
+        
+        @media print { 
+            .no-print, .char-count { display: none !important; } 
+            body { padding: 0; background: white; } 
+            .form-card { box-shadow: none; max-width: 100%; width: 100%; margin: 0; padding: 0; } 
+            textarea { border: none; padding: 0; background: none; overflow: visible; height: auto !important; }
+            td { padding: 12px; }
+            .bg-gray { background-color: #f9fafb !important; -webkit-print-color-adjust: exact; }
+            .session-header { background-color: #f1f5f9 !important; -webkit-print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-card">
+    <div class="text-center">
+        <h1 class="text-xl font-bold text-gray-800">香港大學專業進修學院</h1>
+        <h2 class="text-lg text-gray-600">數碼廣告（高中應用學習）證書課程</h2>
+        <div class="h-1 w-20 bg-blue-600 mx-auto my-4"></div>
+        <h3 class="text-2xl font-bold text-blue-800 mt-2">「廣告創意簡介」課業 (2)</h3>
+    </div>
+
+    <form id="creativeForm">
+        <table>
+            <!-- SESSION 1: 個人資料 -->
+            <tr>
+                <td colspan="2" class="session-header">SESSION 1: 個人資料</td>
+            </tr>
+            <tr>
+                <td class="bg-gray">學生姓名</td>
+                <td>
+                    <textarea maxlength="30" rows="1" placeholder="請填寫姓名" oninput="autoHeight(this)"></textarea>
+                    <div class="char-count">上限 30 字</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="bg-gray">學校名稱</td>
+                <td>
+                    <textarea maxlength="30" rows="1" placeholder="請填寫學校名稱" oninput="autoHeight(this)"></textarea>
+                    <div class="char-count">上限 30 字</div>
+                </td>
+            </tr>
+
+            <!-- 分隔行 / SESSION 2 -->
+            <tr>
+                <td colspan="2" class="session-header">SESSION 2: 廣告創意內容</td>
+            </tr>
+
+            <!-- 產品名稱 -->
+            <tr>
+                <td class="bg-gray">產品名稱</td>
+                <td>
+                    <textarea maxlength="50" rows="1" placeholder="請填寫產品名稱" oninput="autoHeight(this)"></textarea>
+                    <div class="char-count">上限 50 字</div>
+                </td>
+            </tr>
+            <!-- 產品品牌 -->
+            <tr>
+                <td class="bg-gray">產品所屬品牌（如不適用，可不用填寫）</td>
+                <td>
+                    <textarea maxlength="50" rows="1" placeholder="請填寫品牌" oninput="autoHeight(this)"></textarea>
+                    <div class="char-count">上限 50 字</div>
+                </td>
+            </tr>
+            <!-- 開場引言 -->
+            <tr>
+                <td class="bg-gray">開場引言 (約15字)</td>
+                <td>
+                    <textarea maxlength="100" rows="2" placeholder="請填寫開場引言" oninput="autoHeight(this)"></textarea>
+                    <div class="char-count">上限 100 字</div>
+                </td>
+            </tr>
+            <!-- 廣告宣傳目標 -->
+            <tr>
+                <td class="bg-gray">廣告宣傳目標 (約15字）</td>
+                <td>
+                    <textarea maxlength="300" rows="3" placeholder="請描述宣傳目標" oninput="autoHeight(this)"></textarea>
+                    <div class="char-count">上限 300 字</div>
+                </td>
+            </tr>
+            <!-- 關鍵訊息 -->
+            <tr>
+                <td class="bg-gray">關鍵訊息 (約20字）</td>
+                <td>
+                    <textarea maxlength="500" rows="4" placeholder="請填寫核心關鍵訊息" oninput="autoHeight(this)"></textarea>
+                    <div class="char-count">上限 500 字</div>
+                </td>
+            </tr>
+            <!-- 策略概述 -->
+            <tr>
+                <td class="bg-gray">宣傳策略概述及預期成效（約250字）</td>
+                <td>
+                    <textarea maxlength="800" rows="10" placeholder="請詳細描述創意策略及預期成效..." oninput="autoHeight(this)"></textarea>
+                    <div class="char-count">上限 800 字</div>
+                </td>
+            </tr>
+            
+            <!-- 圖片上載區 -->
+            <tr>
+                <td class="bg-gray">與關鍵訊息／廣告宣傳策略相關的主要圖片一</td>
+                <td>
+                    <div class="upload-box" onclick="document.getElementById('f1').click()">
+                        <span id="h1" class="text-gray-400">📷 點擊上載圖片</span>
+                        <img id="p1" class="preview-img">
+                        <input type="file" id="f1" class="hidden" accept="image/*" onchange="showImg(this, 'p1', 'h1')">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="bg-gray">與關鍵訊息／廣告宣傳策略相關的主要圖片二</td>
+                <td>
+                    <div class="upload-box" onclick="document.getElementById('f2').click()">
+                        <span id="h2" class="text-gray-400">📷 點擊上載圖片</span>
+                        <img id="p2" class="preview-img">
+                        <input type="file" id="f2" class="hidden" accept="image/*" onchange="showImg(this, 'p2', 'h2')">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="bg-gray">與關鍵訊息／廣告宣傳策略相關的主要圖片三</td>
+                <td>
+                    <div class="upload-box" onclick="document.getElementById('f3').click()">
+                        <span id="h3" class="text-gray-400">📷 點擊上載圖片</span>
+                        <img id="p3" class="preview-img">
+                        <input type="file" id="f3" class="hidden" accept="image/*" onchange="showImg(this, 'p3', 'h3')">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+        <div class="btn-container no-print">
+            <button type="button" class="btn btn-email" onclick="handleSubmission()">
+                <span>📄</span> 儲存 PDF 並準備傳送電郵
+            </button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function autoHeight(elem) {
+        elem.style.height = 'auto';
+        elem.style.height = (elem.scrollHeight) + 'px';
+    }
+
+    function showImg(input, pId, hId) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                const pImg = document.getElementById(pId);
+                pImg.src = e.target.result;
+                pImg.style.display = 'block';
+                document.getElementById(hId).style.display = 'none';
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function handleSubmission() {
+        window.print();
+        const studentName = document.querySelector('textarea[maxlength="30"]').value || "學生";
+        const email = "apl.digitalad@hkuspace.hku.hk";
+        const subject = encodeURIComponent(`廣告創意簡介課業(2) - ${studentName}`);
+        const body = encodeURIComponent("老師您好，\n\n附件為我的廣告創意簡介課業(2) PDF 檔案，請查收。\n\n謝謝。");
+        setTimeout(() => {
+            window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+        }, 1000);
+    }
+
+    window.onload = function() {
+        document.querySelectorAll('textarea').forEach(t => autoHeight(t));
+    }
+</script>
+
+</body>
+</html>
